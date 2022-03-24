@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>dymanic input fill</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<style>
+
+		fieldset{width: 450px;}
+		ul{padding: 2 px; list-style: none;}
+		label{float: left; width: 100px;}
+
+	</style>
+</head>
+<body>
+
+
+	<form method="POST">
+		<h2>Dynamic Form:</h2>
+
+		<fieldset>
+
+			<legend>web side visit daily</legend>
+			<ul id="sides">
+				<li>
+					<label>Name</label><input type="text" placeholder="Enter your Name" value="">
+				</li>
+			</ul>
+			<input type="button" id="add" value="Add More">
+
+		</fieldset>
+		
+	</form>
+
+	<script>
+
+		$(document).ready(function(){
+			$('#add').click(function(){
+				var str = '<li>';
+				str+= '<label>Name</label><input type="text" placeholder="Enter your Name" value="">';
+				str+= '<input type="button"  value="remove" class="remove" >';
+				str+= '</li>';
+				$('#sides').append(str);
+			});
+
+			$('ul').on('click' , '.remove' , function(){
+				$(this).parent('li').remove();
+			});
+		});
+		
+	</script>
+
+	
+
+
+
+</body>
+</html>
